@@ -1,6 +1,7 @@
 jQuery(function(window, $) {
-    if (location.protocol == 'http:') {
-        location.href = location.href.replace(':', 's:');
+    // 浏览器会拒绝 https 发送至 http 的请求 orz
+    if (location.protocol == 'https:') {
+        location.href = location.href.replace('s:', ':');
         return ;
     }
 
