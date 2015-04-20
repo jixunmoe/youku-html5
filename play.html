@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>视频加载中…</title>
+	<script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+	<script src="./jsapi.js"></script>
+	<script src="./player.js"></script>
+	<link rel="stylesheet" href="./player.css">
+</head>
+<body>
+	<div id="main">
+		<video src="about:blank" id="player" controls autoplay></video>
+	</div>
+
+	<section>
+		<h2>画质/分段 选择</h2>
+		<ul id="q"></ul>
+	</section>
+
+	<section>
+		<h2>播放选项</h2>
+		<p><label><input type="checkbox" id="auto_next"> 自动播放分p (移动设备无效)</label></p>
+
+		<p class="no-margin-bottom">自动播放的画质</p>
+		<p class="desc">半角逗号分割, 如果所有画质都不存在则不自动播放.</p>
+		<input id="auto_q" class="control" />
+	</section>
+</body>
+</html>
