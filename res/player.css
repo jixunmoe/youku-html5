@@ -90,3 +90,41 @@ button, input, select, textarea {
     font-size: inherit;
     line-height: inherit;
 }
+
+
+.mini {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.mini .video-js {
+    width:  100% !important;
+    height: 100% !important;
+    position: absolute;
+}
+
+.mini select {
+    background: transparent;
+}
+
+.mini option {
+    color: #ccc;
+    background-color: #07141e;
+    background-color: rgba(7,20,30,.7);
+}
+
+.mini .vjs-quality {
+    cursor: default;
+}
+.mini .vjs-quality.pointer {
+    cursor: pointer;
+}
+
+#quality {
+    overflow: hidden;
+    position: absolute;
+    bottom: 2.5em;
+    cursor: pointer;
+    z-index: 9;
+}

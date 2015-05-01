@@ -1,46 +1,9 @@
 jQuery(function(window, $) {
-    // 浏览器会拒绝 https 发送至 http 的请求 orz
-    if (location.protocol == 'https:') {
-        location.href = location.href.replace('s:', ':');
-        return ;
-    }
-
-    var sid = location.search.slice(1);
-    if (!sid) {
-        location.href = '/';
-        return ;
-    }
-
-    $.jsonp = function (url, cbName) {
-        return $.ajax({
-            url: url,
-            dataType: 'jsonp',
-            jsonp: cbName || 'callback'
-        });
-    };
-
-    var $player = $('#player');
-    var _url = 'http://v.youku.com/player/getPlaylist/VideoIDS/' + sid + '/Pf/4/ctype/12/ev/1';
-    $.jsonp(_url, '__callback').done(function (data) {
-        try {
-            segmentPlayer($.extend(data.data[0], decodeYouku(data)));
-        } catch (err) {
-            $('#main').text('抓取播放数据时发生错误: ' + err.message);
-        }
-    });
-
-    var keyName = {
-        '3gp'  : '3gp',
-        '3gphd': '高清 3gp',
-        'flv'  : '标清',
-        'flvhd': '高清',
-        'mp4'  : '标清',
-        'hd2'  : '高清 2',
-        'hd3'  : '高清 3'
-    };
     var $q = $('#q');
     var $auto_q = $('#auto_q');
-    function segmentPlayer (data) {
+    var $player = $('#player');
+
+    $.getVideoData(function (data) {
         document.title = data.title + ' - 油库里 HTML5 播放器';
         var urls = data._videoSegsDic;
         var lis = {};
@@ -63,7 +26,7 @@ jQuery(function(window, $) {
         if (defQ && lis[defQ]) {
             $('.change-q', lis[defQ]).first().click();
         }
-    }
+    });
 
     var $auto_next = $('#auto_next');
     var playNextPart = $auto_next.prop.bind($auto_next, 'checked');

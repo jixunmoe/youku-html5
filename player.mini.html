@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Fastly CDN -->
+	<link href="https://vjs.zencdn.net/4.11/video-js.css" rel="stylesheet">
+	<!-- <script src="https://vjs.zencdn.net/4.11/video.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/4.12.5/video.dev.js"></script>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>视频加载中…</title>
+	<script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+	<script src="./res/jsapi.js"></script>
+	<script src="./res/common.js"></script>
+	<script src="./res/player.mini.js"></script>
+	<link rel="stylesheet" href="./res/player.css">
+</head>
+<body class="mini">
+	<div id="overlay"></div>
+	<video src="about:blank" id="player" controls></video>
+	<select id="quality" style="display:none"></select>
+</body>
+</html>
